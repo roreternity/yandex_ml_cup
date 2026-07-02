@@ -1,0 +1,22 @@
+# ── Large assets — hosted on Hugging Face / Kaggle, NOT in git ──
+# (see README for links). GitHub caps files at 100 MB.
+
+# Task C — model weights (~1.4 GB) — on Hugging Face
+Task_C_LLM_QA/task_c_solution/weights/
+
+# Task B — dataset (~22 GB) — on Hugging Face / Kaggle
+Task_B_ViewSynthesis/task_b_data/
+
+# Packaged archives (regenerable / mirror the folders above)
+*.zip
+
+# Large generated outputs
+Task_A_Puzzles/submission/
+Task_B_ViewSynthesis/task_b_submission/
+Task_B_ViewSynthesis/task_b_submission_train/
+
+# ── OS / Python junk ──
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

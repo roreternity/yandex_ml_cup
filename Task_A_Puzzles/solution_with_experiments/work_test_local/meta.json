@@ -1,0 +1,21 @@
+{
+  "env_id": "cylinder_game",
+  "puzzle_type": "sliding",
+  "num_train_samples": 39965,
+  "bfs": {
+    "states": 93011,
+    "expanded": 29358,
+    "max_depth": 6,
+    "depth_counts": {
+      "0": 1,
+      "1": 15,
+      "2": 117,
+      "3": 632,
+      "4": 2670,
+      "5": 9489,
+      "6": 16434
+    },
+    "time_sec": 7.999972820281982
+  },
+  "wall_time_sec": 20.01453709602356
+}

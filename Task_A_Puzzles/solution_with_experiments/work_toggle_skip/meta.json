@@ -1,0 +1,7 @@
+{
+  "env_id": "toggle_lights",
+  "puzzle_type": "toggle",
+  "num_train_samples": 39213,
+  "bfs": null,
+  "wall_time_sec": 3.174130916595459
+}
