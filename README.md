@@ -16,7 +16,7 @@ GitHub caps files at 100 MB, so the big data and model weights live elsewhere:
 
 | Asset | Size | Link |
 |---|---|---|
-| Task B — multi-camera + LiDAR dataset | ~22 GB | [Hugging Face](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) · [Kaggle mirror](https://www.kaggle.com/datasets/marginal888/yandex-mlcup-taskb) |
+| Task B — multi-camera + LiDAR dataset | ~22 GB | [Hugging Face](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) |
 | Task C — Qwen3 model weights | ~1.4 GB | [Hugging Face](https://huggingface.co/roreternity/yandex_mlcup_taskc) |
 
 To run a task, download its asset above and drop it back into that task's folder
