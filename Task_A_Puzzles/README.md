@@ -1,38 +1,37 @@
-# Task A — Adaptive Discrete Puzzle Solver
+# Задача A — Адаптивный решатель дискретных головоломок
 
-## Task
+## Задача
 
-Build one universal algorithm that, given **50 min to train** and **25 min to solve**,
-solves *any* reversible discrete puzzle through a single `gym.py` API — including hidden
-puzzles it has never seen. The solver talks to the environment only through
-`reset / valid_actions / step / is_solved / encode_state` and is never told which puzzle
-it is playing.
+Построить универсальный алгоритм, который за **50 минут обучения** и **25 минут инференса**
+решает *любую* обратимую дискретную головоломку через единый API `gym.py` — включая скрытые
+головоломки, которые алгоритм никогда не видел. Решатель взаимодействует со средой только через
+`reset / valid_actions / step / is_solved / encode_state` и не знает, какую именно головоломку решает.
 
-Open puzzles: 15-puzzle (`SWAP`+`EMPTY`), Lights Out (`TOGGLE`), Varykon cylinder (`ROTATE`).
+Открытые головоломки: пятнашки (`SWAP`+`EMPTY`), Lights Out (`TOGGLE`), цилиндр Варикон (`ROTATE`).
 
-## Solution
+## Решение
 
-A structure-aware cascade — exact solvers first, generic search last:
+Структурно-осознанный каскад — сначала точные решатели, затем универсальный поиск:
 
-- **Lights Out → GF(2) linear solver** (Gaussian elimination mod 2): exact and instant.
-- **15-puzzle → fast-array IDA\*** (Manhattan + linear conflict), then beam search.
-- **Rotational / hidden → long beam search**, then A\* guided by a learned value net `V(s)`.
+- **Lights Out → GF(2) линейный решатель** (метод Гаусса по модулю 2): точное и мгновенное решение.
+- **Пятнашки → быстрый IDA\*** (Manhattan + linear conflict), затем beam search.
+- **Вращательные / скрытые → длинный beam search**, затем A\* с обученной сетью оценки `V(s)`.
 
-`V(s)` is trained on backward random walks from the solved state (free labeled data) and
-reads through `encode_state`, so one model works on every puzzle. Final score: **82**.
+`V(s)` обучается на обратных случайных блужданиях из решённого состояния (бесплатные размеченные данные)
+и работает через `encode_state`, поэтому одна модель подходит для любой головоломки. Итоговый score: **82**.
 
-## Folders & files
+## Папки и файлы
 
-| Item | Description |
+| Элемент | Описание |
 |---|---|
-| `writeup_task_a.md` | Narrative of the whole approach and how the score went 63 → 82 |
-| `baseline/` | The organizers' baseline (gym API + simple `V(s)` A\*) |
-| `solution_main_code/` | The main, most-developed solver code (the cascade) |
-| `solution_with_experiments/` | An earlier code version **plus** all the `work_*` experiment runs and `experiments.md` decision notes |
-| `submission/` | Generated per-instance solution outputs |
-| `notebook_task_a_puzzles.ipynb` | Step-by-step walkthrough notebook |
-| `*.zip` | Packaged (submittable) copies of the folders above |
+| `writeup_task_a.md` | Подробное описание подхода и как score вырос с 63 до 82 |
+| `baseline/` | Baseline от организаторов (gym API + простой A\* с `V(s)`) |
+| `solution_main_code/` | Основной, наиболее проработанный код решателя (каскад) |
+| `solution_with_experiments/` | Более ранняя версия кода **плюс** все запуски экспериментов `work_*` и заметки `experiments.md` |
+| `submission/` | Сгенерированные решения для каждого инстанса |
+| `notebook_task_a_puzzles.ipynb` | Пошаговый ноутбук с разбором решения |
+| `*.zip` | Запакованные (для отправки) копии папок выше |
 
-Inside a solver folder: `gym.py` (environments), `common.py` (tokenization + backward walks),
-`model.py` (`ValueNet`), `search.py` (A\*), `train.py` (trains `V`, builds the reverse-BFS table),
-`solve.py` (the cascade → `output_actions.csv`), `generate_states.py`, `check.py` (scoring).
+Внутри папки решения: `gym.py` (среды), `common.py` (токенизация + обратные блуждания),
+`model.py` (`ValueNet`), `search.py` (A\*), `train.py` (обучение `V`, построение таблицы обратного BFS),
+`solve.py` (каскад → `output_actions.csv`), `generate_states.py`, `check.py` (подсчёт score).

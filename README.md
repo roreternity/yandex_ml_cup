@@ -1,23 +1,23 @@
-# Yandex ML Cup — Solutions
+# Yandex ML Cup — Решения
 
-My solutions to the three tracks of the Yandex ML Cup ML challenge.
+Мои решения трёх треков ML-соревнования Yandex ML Cup.
 
-| Track | Task | Where |
+| Трек | Задача | Папка |
 |---|---|---|
-| **A** | Adaptive discrete-puzzle solver | [`Task_A_Puzzles/`](Task_A_Puzzles/) |
-| **B** | Multi-camera novel-view synthesis | [`Task_B_ViewSynthesis/`](Task_B_ViewSynthesis/) · data on [HF](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) |
-| **C** | School-question answering with an LLM | [`Task_C_LLM_QA/`](Task_C_LLM_QA/) |
+| **A** | Адаптивный решатель дискретных головоломок | [`Task_A_Puzzles/`](Task_A_Puzzles/) |
+| **B** | Синтез новых ракурсов по нескольким камерам | [`Task_B_ViewSynthesis/`](Task_B_ViewSynthesis/) · данные на [HF](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) |
+| **C** | Ответы на школьные вопросы с помощью LLM | [`Task_C_LLM_QA/`](Task_C_LLM_QA/) |
 
-Each task folder has a `README.md` with the task statement and the solution code.
+В каждой папке — `README.md` с описанием задачи и код решения.
 
-## Large assets (hosted outside GitHub)
+## Большие файлы (хранятся вне GitHub)
 
-GitHub caps files at 100 MB, so the big data and model weights live elsewhere:
+GitHub ограничивает размер файлов 100 МБ, поэтому данные и веса моделей лежат отдельно:
 
-| Asset | Size | Link |
+| Ресурс | Размер | Ссылка |
 |---|---|---|
-| Task B — multi-camera + LiDAR dataset | ~22 GB | [Hugging Face](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) |
-| Task C — Qwen3 model weights | ~1.4 GB | [Hugging Face](https://huggingface.co/roreternity/yandex_mlcup_taskc) |
+| Задача B — мультикамерный + LiDAR датасет | ~22 ГБ | [Hugging Face](https://huggingface.co/datasets/roreternity/yandex_mlcup_taskb) |
+| Задача C — веса модели Qwen3 | ~1.4 ГБ | [Hugging Face](https://huggingface.co/roreternity/yandex_mlcup_taskc) |
 
-To run a task, download its asset above and drop it back into that task's folder
-(Task B → `task_b_data/`, Task C → `task_c_solution/weights/`).
+Чтобы запустить задачу, скачайте соответствующий ресурс и поместите в папку задачи
+(задача B → `task_b_data/`, задача C → `task_c_solution/weights/`).
